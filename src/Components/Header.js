@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
 
 function Header() {
+    const [burgerStatus, setBurgerStatus] = useState(false)
+        
     return (
         <Container>
             <Content>
@@ -22,23 +26,48 @@ function Header() {
                 </Wrap>
                  
             </Content>
+            <Menu onClick ={()=>setBurgerStatus(true)}/>
+            <MenuItems style={{transform:burgerStatus ?"translateX(0)" : "translateX(100%)"}}>
+            <ClosedIcon onClick={()=>setBurgerStatus(false)}/>
+                <WrapItems>
+                    <span>Home</span>
+                </WrapItems>
+                 <WrapItems>
+                    <span>About</span>
+                </WrapItems>
+                 <WrapItems>
+                    <span>Resume</span>
+                </WrapItems>
+                 <WrapItems>
+                    <span>Work</span>
+                </WrapItems>
+                 <WrapItems>
+                    <span>Contact</span>
+                </WrapItems>
+            </MenuItems>
         </Container>
     )
 }
 
 const Container = styled.div `
 position: fixed;
-top: 0;
 z-index: 100;
 left: 0;
 right: 0;
 margin-right: auto;
+justify-content: center;
+display: flex;
+align-items: center;
 height: 50px;
+;
 `
 const Content = styled.div `
 display: flex;
 align-items: center;
 justify-content: center;
+@media(max-width:768px){
+    opacity: 0;
+}
 `
 const Wrap = styled.div `
 margin-right: 30px;
@@ -86,5 +115,79 @@ margin-right: 30px;
          letter-spacing: 2.5px;
      }
  }
+`
+const Menu = styled(MenuIcon) `
+position:absolute;
+right: 30px;
+color: white;
+cursor: pointer;
+opacity: 0;
+:hover{
+    color:#00bcd4 ;
+}
+
+@media(max-width:768px){
+    opacity: 1;
+}
+`
+
+const MenuItems = styled.div `
+display: flex;
+flex-direction: column;
+transition: 0.5s ease-in-out;
+position: fixed;
+top: 0;
+bottom: 0;
+right: 0;
+list-style: none;
+backdrop-filter: blur(8.5px);
+width: 300px;
+height: 50vh;
+
+
+`
+const WrapItems = styled.div `
+margin-top: 40px;
+cursor: pointer;
+
+span{
+    color: black;
+    position: relative;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: 0.4s ease-in-out;
+
+  &:before{
+    content: '';
+    background-color: black;
+    border-radius: 10px;
+    bottom: -6px;
+    left: 2px;
+    height: 2px;
+    opacity: 1;
+    right: 0px;
+    width: auto;
+    visibility: visible;
+    position: absolute;
+    transform-origin: left center;
+}
+}
+&:hover{
+    background-color: black;
+    span{
+         color: white;
+    }
+}
+`
+const ClosedIcon = styled(CloseIcon) `
+color: white;
+cursor: pointer;
+margin-top: 10px;
+position: absolute;
+right: 30px;
+top: 5px;
+&:hover{
+    color: #00bcd4;
+}
 `
 export default Header

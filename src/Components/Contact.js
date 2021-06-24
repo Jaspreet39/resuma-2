@@ -87,6 +87,9 @@ h3{
     font-size: 17px;
     letter-spacing: 1px;
 }
+@media (max-width:900px){
+    opacity: 0;
+}
 `
 
 const AboutText = styled.div `
@@ -133,6 +136,7 @@ display: flex;
 align-items: center;
 flex-direction: column;
 justify-content: center;
+
 `
 
 const Wrap = styled.div `
@@ -141,7 +145,7 @@ align-items: center;
 margin-top: 40px;
 
 h3{
-    margin-right: 120px;
+    margin-right: 50px;
     text-align: start;
     color: rgb(249,249,249);
     font-size: 15px;
@@ -169,7 +173,7 @@ align-items: center;
 margin-top: 40px;
 
 h3{
-    margin-right: 120px;
+    margin-right: 50px;
     text-align: start;
     color: rgb(249,249,249);
     font-size: 15px;

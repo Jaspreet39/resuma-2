@@ -35,7 +35,6 @@ min-height: 55vh;
 width: 100vw;
 /* background-color: rgba(0,0,0,0.8) ; */
 background: linear-gradient(90deg,#4a148c,#3949ab,#37474f);
-position: relative;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -44,9 +43,14 @@ justify-content: center;
 const Content = styled.div `
 display: flex;
 align-items: center;
-position: absolute;
+justify-content: center;
 margin-top: 90px;
 margin-bottom: 150px;
+@media(max-width:902px){
+    img{
+        opacity: 0;
+    }
+}
 
 img{
     height: 120px;
@@ -58,8 +62,18 @@ img{
 `
 
 const AboutContainer = styled.div `
-text-align: left;
+display: flex;
+margin-right: 20px;
+flex-direction: column;
+align-items: flex-start;
+ text-align: left;
 color: white;
+@media(max-width:768px){
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
 `
 
 const AboutText = styled.div `
@@ -72,7 +86,7 @@ h2{
 }
 
 p{
-    width: 700px;
+    width: 550px;
     font-weight: 300;
     margin-top: 10px;
     color: rgba(249,249,249,0.6);

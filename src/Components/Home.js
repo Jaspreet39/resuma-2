@@ -17,7 +17,7 @@ const form = document.getElementById('form')
        form.style.transform = 'rotateX(0deg) rotateY(0deg)'
    })
 },[])
-//Based in Rajpura. Student. I eat, sleep and breathe React.
+
    
     return (
         <Container >
@@ -53,7 +53,6 @@ const form = document.getElementById('form')
 const Container = styled.div `
 background-image: url("/Images/nebula-stars-sea-night-starry-sky.jpg");
 height: 100vh;
-width: 100vw;
 background-repeat: no-repeat;
 background-size: cover;
 background-position: center;
@@ -73,7 +72,7 @@ flex-direction: column;
 justify-content: center;
 text-align: center;
 height: 500px;
-min-width: 900px;
+width: 900px;
 background: rgba(255,255,255,.2.5);
 border-radius: 5px;
 box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -83,6 +82,74 @@ backdrop-filter:blur(6.5px);
 transform-style: preserve-3d;
 cursor: pointer;
 color: rgb(249,249,249);
+
+  @media(max-width:950px){
+    perspective: 1000px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 500px;
+    width: 750px;
+    background: rgba(255,255,255,.2.5);
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-top: 1px solid rgba(255,255,255,0.3);
+    border-left: 1px solid rgba(255,255,255,0.3);
+    backdrop-filter:blur(6.5px);
+    transform-style: preserve-3d;
+    cursor: pointer;
+    color: rgb(249,249,249);
+
+    h1{
+     font: 90px/1.1em 'opensans-bold', sans-serif;
+   color: #fff;
+   letter-spacing: -2px;
+   margin: 0 auto 18px auto;
+   text-shadow: 0px 1px 3px rgba(0, 0, 0, .8);
+    }
+  }
+
+  @media (min-width:950px) and (max-width: 800px){
+    perspective: 1000px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 470px;
+    width: 650px;
+    background: rgba(255,255,255,.2.5);
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-top: 1px solid rgba(255,255,255,0.3);
+    border-left: 1px solid rgba(255,255,255,0.3);
+    backdrop-filter:blur(6.5px);
+    transform-style: preserve-3d;
+    cursor: pointer;
+    color: rgb(249,249,249);
+  }
+  @media (max-width: 768px){
+     perspective: 1000px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 450px;
+    width: 600px;
+    background: rgba(255,255,255,.2.5);
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-top: 1px solid rgba(255,255,255,0.3);
+    border-left: 1px solid rgba(255,255,255,0.3);
+    backdrop-filter:blur(6.5px);
+    transform-style: preserve-3d;
+    cursor: pointer;
+    color: rgb(249,249,249);
+  
+  }
 
 
 h1{
