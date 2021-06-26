@@ -9,6 +9,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+html{
+  scroll-behavior: smooth;
+}
 
 @keyframes animateDown{
   0%, 20%, 50%, 80%, 100%{
