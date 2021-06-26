@@ -13,8 +13,9 @@ const Work = (props) => {
         slidesToScroll:1,
         autoplay: true,
     }
+
     return (
-        <Container {...settings}>
+        <Container {...settings} id="work">
           <Content>
             <h3> CHECK OUT SOME OF MY WORK</h3>
             <Items>
@@ -49,89 +50,88 @@ const Work = (props) => {
 }
 
 const Container = styled.div `
-height: 35vh;
-width: 100vw;
-background-color: rgba(0,0,0,0.1);
-display: flex;
-align-items: center;
-justify-content: center;
-position:relative;
+  min-height: 50vh;
+  width: 100vw;
+  background-color: rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position:relative;
+  padding:35px 0;
 `
 
 const Content = styled.div `
-align-items: center;
-justify-content: center;
-flex-direction: column;
-
-
-
-h3{
-  font-size: 17px;
-
-  margin-bottom: 20px;
-  text-align: center;
-  color: rgba(0,0,0,0.4);
-  font-weight: 500;
   align-items: center;
-  letter-spacing: 1.5px;
-}
+  justify-content: center;
+  flex-direction: column;
+  width:500px;
+  h3{
+    font-size: 17px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: rgba(0,0,0,0.4);
+    font-weight: 500;
+    align-items: center;
+    letter-spacing: 1.5px;
+  }
 `
 
-const Items = styled.div `
-/* display: flex; */
-/* width: 100%; */
-height: 250px;
-width: 400px;
-overflow-x: hidden;
-overflow-y: scroll;
+const Items = styled.div `  
+  height: 250px;
+  width: 400px;
+  @media(max-width:850px){
+    width: 100%;
+  }
+  overflow-x: hidden;
+  overflow-y: scroll;
 `
 
 const Wrap = styled.div `
-/* width: 200px; */
-padding-top: 45.25%;
-border-radius: 10px;
-margin-top: 20px;
-box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px, rgb(0 0 0 / 73%) 0px 16px 10px -10px;
-cursor: pointer;
-overflow: hidden;
-position: relative;
-transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-border: 3px solid  rgba(249, 249, 249, 0.1);
+  /* width: 200px; */
+  padding-top: 45.25%;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px, rgb(0 0 0 / 73%) 0px 16px 10px -10px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border: 3px solid  rgba(249, 249, 249, 0.1);
 
 
-img{
-  inset: 0px;
-  display: block;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  position: absolute;
-  object-fit: cover;
-  z-index: -1;
-  opacity: 1;
-}
-
-h3{
-  position: absolute;
-  opacity: 0;
-  color: white;
-  text-align: center;
-  top: 20px;
-  right: 0;
-  left: 0;
-  transition: 0.5s ease-in;
-  z-index: 1;
-}
-
-
-&:hover{
-  transform: scale(1.05);
- background: rgba(0,0,0,1);
-
-  h3{
+  img{
+    inset: 0px;
+    display: block;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    position: absolute;
+    object-fit: cover;
+    z-index: -1;
     opacity: 1;
   }
-}
+
+  h3{
+    position: absolute;
+    opacity: 0;
+    color: white;
+    text-align: center;
+    top: 20px;
+    right: 0;
+    left: 0;
+    transition: 0.5s ease-in;
+    z-index: 1;
+  }
+
+
+  &:hover{
+    transform: scale(1.05);
+  background: rgba(0,0,0,1);
+
+    h3{
+      opacity: 1;
+    }
+  }
 `
 
 

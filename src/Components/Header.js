@@ -142,36 +142,35 @@ a{
 `
 const Menu = styled(MenuIcon) `
 position:absolute;
+width: 100vw;
 right: 30px;
 color: white;
 cursor: pointer;
-opacity: 0;
+display:none !important;
 :hover{
     color:#00bcd4 ;
 }
-
-@media(max-width:768px){
-    opacity: 1;
+@media  (max-width: 768px){
+    display: block  !important;
 }
 `
 
 const MenuItems = styled.div `
-display: flex;
-flex-direction: column;
-transition: 0.5s ease-in-out;
-position: fixed;
-top: 0;
-bottom: 0;
-right: 0;
-list-style: none;
-backdrop-filter: blur(8.5px);
-width: 300px;
-height: 50vh;
-
-
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s ease-in-out;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    list-style: none;
+    backdrop-filter: blur(8.5px);
+    width: 120px;
+    padding: 10px;
+    height: 50vh;
 `
 const WrapItems = styled.div `
-margin-top: 40px;
+margin: 10px;
 cursor: pointer;
 
 a{
@@ -179,7 +178,7 @@ a{
 }
 
 span{
-    color: black;
+    color: lightgrey;
     position: relative;
     font-size: 1.2rem;
     font-weight: 500;
@@ -187,7 +186,7 @@ span{
 
   &:before{
     content: '';
-    background-color: black;
+    background-color: grey;
     border-radius: 10px;
     bottom: -6px;
     left: 2px;

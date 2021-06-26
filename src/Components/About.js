@@ -13,7 +13,7 @@ function About() {
                 <AboutContainer>
                     <AboutText>
                         <h2>About Me</h2>
-                        <p>Hi there! I am Jaspreet! I've been coding for over 2 years now. As a recat. I m studying in GNDEC,Ludhiana in INDIA. i love to write a code in react</p>
+                        <p>Hi there! I am Jaspreet! I've been coding for over 3 years now. As a react. I m studying in GNDEC,Ludhiana in INDIA. i love to write a code in react</p>
                     </AboutText>
                     <Contact>
                         <h2>Contact Detail</h2>
@@ -31,30 +31,36 @@ function About() {
 }
 
 const Container = styled.div `
-height: 55vh;
-width: 100vw;
-background: linear-gradient(90deg,#4a148c,#3949ab,#37474f);
-display: flex;
-align-items: center;
-justify-content: center;
+    min-height: 55vh;
+    width: 100vw;
+    background: linear-gradient(90deg,#4a148c,#3949ab,#37474f);
+    display: flex;
+    align-items: center;
+    justify-content: center; 
 `
 
 const Content = styled.div `
-display: flex;
+    display: flex;
+    max-width:60vw;
+    
 
-@media(max-width:850px){
+    padding: 20px 0;
+
     img{
-        opacity: 0;
+        height: 120px;
+        width: 120px;
+        border-radius: 50%;
+        margin-right: 90px;
+        margin-bottom: 100px;
     }
-}
 
-img{
-    height: 120px;
-    width: 120px;
-    border-radius: 50%;
-    margin-right: 90px;
-    margin-bottom: 100px;
-}
+    @media(max-width:850px){
+        img{
+            display: none;
+        }
+        max-width:90vw;
+    }
+
 `
 
 const AboutContainer = styled.div `
@@ -62,12 +68,17 @@ margin-right: 20px;
 flex-direction: column;
 text-align: start;
 color: white;
+@media(max-width:850px){
+    margin-right: 0;
+}
 `
 
 const AboutText = styled.div `
+width: 100%;
 display: flex;
 flex-direction: column;
 align-items: flex-start;
+max-width: 200px;
 
 
 h2{
@@ -76,10 +87,14 @@ h2{
 }
 
 p{
-    width: 550px;
+    width:550px;
     font-weight: 300;
     margin-top: 10px;
     color: rgba(249,249,249,0.6);
+    @media(max-width:950px){
+        width:100%;
+        text-align: justify;
+    }
 }
 `
 
