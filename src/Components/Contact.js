@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 function Contact() {
     return (
-        <Container>
+        <Container id="contact">
           <Heading>
             <h2>Get in touch with me a part of my family !</h2>
           </Heading>
@@ -40,13 +40,16 @@ function Contact() {
                     </AboutText>
                 </About>  
             </Content>
-           <Button>Submit</Button>
+           <Button>
+               <button type="submit">Submit</button>
+           </Button>
         </Container>
     )
 }
 
 const Container = styled.div `
 height: 105vh;
+width: 100vw;
 background-color: rgba(0,0,0,0.88);
 /* justify-content: center; */
 display: flex;
@@ -206,14 +209,27 @@ align-items: center;
 justify-content: center;
 border-radius: 5px;
 margin-top: 30px;
-letter-spacing: 1.4px;
-text-transform: uppercase;
-font-size: 18px;
 cursor: pointer;
+
+button{
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    font-size: 18px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    
+}
 
 &:hover{
     background-color: rgb(249,249,249);
     color: black;
+    transition: 1s ease-in;
+
+    button{
+        color: black;
+    }
 }
 `
 

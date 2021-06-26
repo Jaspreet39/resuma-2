@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 function Footer() {
     return (
-        <Container>
+        <Container id="footer">
             <Content>
             {/* <DownArrow>
               <img src="/Images/dropup.png" alt=""/>
@@ -30,6 +30,7 @@ function Footer() {
 
 const Container = styled.div `
 height: 18vh;
+width: 100vw;
 background-color: #ebeeee;
 display: flex;
 align-items: center;
@@ -42,28 +43,28 @@ align-items: center;
 justify-content: center;
 `
 
-const DownArrow = styled.div `
-height: 40px;
-left: 120px;
-width: 40px;
-background-color:rgba(0,0,0,0.5);
-position: relative;
-bottom: 90px;
-border-radius: 50%;
-cursor: pointer;
+  // const DownArrow = styled.div `
+  // height: 40px;
+  // left: 120px;
+  // width: 40px;
+  // background-color:rgba(0,0,0,0.5);
+  // position: relative;
+  // bottom: 90px;
+  // border-radius: 50%;
+  // cursor: pointer;
 
-img{
-    height: 40px;
-    position: absolute;
-    bottom: 1.5px;
-   
-}
+  // img{
+  //     height: 40px;
+  //     position: absolute;
+  //     bottom: 1.5px;
+    
+  // }
 
-&:hover{
-    background-color: #00bcd4;
-    transition-delay: 0.1s;
-}
-`
+  // &:hover{
+  //     background-color: #00bcd4;
+  //     transition-delay: 0.1s;
+  // }
+  // `
 
 const Li = styled.div `
 display: flex;
@@ -71,11 +72,17 @@ align-items: center;
 justify-content: center;
 
 a{
+
     img{
         height: 30px;
         margin-right: 40px;
         margin-top: 55px;
         margin-bottom: 20px;
+    }
+
+    &:hover{
+      transform: scale(1.2);
+      transition: 0.5s ;
     }
 }
 `

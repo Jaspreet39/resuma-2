@@ -10,19 +10,29 @@ function Header() {
         <Container>
             <Content>
                 <Wrap>
+                <a href="#home">
                     <span>Home</span>
+                    </a>
                 </Wrap>
                  <Wrap>
+                 <a href="#about">
                     <span>About</span>
+                    </a>
                 </Wrap>
                  <Wrap>
+                 <a href="#resume">
                     <span>Resume</span>
+                    </a>
                 </Wrap>
                  <Wrap>
+                 <a href="#work">
                     <span>Work</span>
+                    </a>
                 </Wrap>
                  <Wrap>
+                 <a href="#contact">
                     <span>Contact</span>
+                    </a>
                 </Wrap>
                  
             </Content>
@@ -30,19 +40,29 @@ function Header() {
             <MenuItems style={{transform:burgerStatus ?"translateX(0)" : "translateX(100%)"}}>
             <ClosedIcon onClick={()=>setBurgerStatus(false)}/>
                 <WrapItems>
+                    <a href="#home">
                     <span>Home</span>
+                    </a>
                 </WrapItems>
                  <WrapItems>
+                     <a href="#about">
                     <span>About</span>
+                    </a>
                 </WrapItems>
                  <WrapItems>
+                    <a href="#resume">
                     <span>Resume</span>
+                    </a>
                 </WrapItems>
                  <WrapItems>
+                     <a href="#work">
                     <span>Work</span>
+                    </a>
                 </WrapItems>
                  <WrapItems>
+                     <a href="#contact">
                     <span>Contact</span>
+                    </a>
                 </WrapItems>
             </MenuItems>
         </Container>
@@ -51,6 +71,7 @@ function Header() {
 
 const Container = styled.div `
 position: fixed;
+width: 100vw;
 z-index: 100;
 left: 0;
 right: 0;
@@ -71,6 +92,9 @@ justify-content: center;
 `
 const Wrap = styled.div `
 margin-right: 30px;
+a{
+    text-decoration: none;
+}
 
 
  span{
@@ -149,6 +173,10 @@ height: 50vh;
 const WrapItems = styled.div `
 margin-top: 40px;
 cursor: pointer;
+
+a{
+    text-decoration: none;
+}
 
 span{
     color: black;

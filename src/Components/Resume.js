@@ -3,26 +3,26 @@ import styled from 'styled-components'
 
 function Resume() {
     return (
-        <Container>
+        <Container id="resume">
             <Content>
                 <Wrap>
                     <Title>Education</Title>
                     <Detail>
                         <h1>Guru Nanak Dev Engineering College,Ludhiana</h1>
                         <Info>
-                            <h3>Bachelor's Degree, Computer Science • </h3>
-                            <h3>July 2022</h3>
+                            <h3>Bachelor's Degree, Computer Science </h3>
+                            <h4>•July 2022</h4>
                         </Info>
                         <p>Graduate with First Class Honours</p>
                     </Detail>
                 </Wrap>
                 <Wrap>
                     <Title>Work</Title>
-                    <Detail>
+                    <Detail style={{marginLeft:"50px"}}>
                         <h1>Self</h1>
                         <Info>
-                            <h3>Bachelor's Degree, Computer Science • </h3>
-                            <h3>July 2022</h3>
+                            <h3>Bachelor's Degree, Computer Science </h3>
+                            <h4>•July 2022</h4>
                         </Info>
                         <p>Graduate with First Class Honours</p>
                     </Detail>
@@ -33,7 +33,8 @@ function Resume() {
 }
 
 const Container = styled.div `
-min-height: 60vh;
+height: 60vh;
+width: 100vw;
 display: flex;
 justify-content: center;
 `
@@ -47,7 +48,7 @@ align-items: flex-start;
 
 const Wrap = styled.div `
 display: flex;
-align-items: center;
+align-items: flex-start;
 margin-bottom: 120px;
 position: relative;
 
@@ -68,11 +69,12 @@ position: relative;
 `
 
 const Title = styled.div `
-margin-right: 110px;
 font-size: 23px;
 font-weight: 500;
 margin-bottom: 60px;
 position: relative;
+margin-right: 100px;
+margin-left: 20px;
 
 &:before{
     content: '';
@@ -94,20 +96,16 @@ position: relative;
 const Detail = styled.div `
 display: flex;
 flex-direction: column;
+justify-content: flex-start;
 align-items: flex-start;
-text-align: left;
+/* margin-left: 50px; */
 
 h1{
     font-weight: 700;
     font-size: 25px;
 }
 
-h3{
-    margin-top: 10px;
-    color: rgba(0,0,0,0.5);
-    font-size: 20px;
-    font-weight: 400;
-}
+
 
 p{
     margin-top: 20px;
@@ -118,6 +116,19 @@ p{
 const Info = styled.div `
 display: flex;
 align-items: center;
+h3{
+    margin-top: 10px;
+    color: rgba(0,0,0,0.5);
+    font-size: 20px;
+    font-weight: 400;
+}
+h4{
+     margin-top: 10px;
+    color: rgba(0,0,0,0.5);
+    font-size: 17px;
+    font-weight: 400;
+    margin-left: 10px;
+}
 `
 
 export default Resume

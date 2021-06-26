@@ -7,7 +7,7 @@ function About() {
     // const pathName = location.pathname
     // console.log(pathName)
     return (
-        <Container>
+        <Container id="about">
             <Content>
                 <img src="/Images/IMG_20191017_134338.jpg" alt=""/>
                 <AboutContainer>
@@ -31,9 +31,8 @@ function About() {
 }
 
 const Container = styled.div `
-min-height: 55vh;
+height: 55vh;
 width: 100vw;
-/* background-color: rgba(0,0,0,0.8) ; */
 background: linear-gradient(90deg,#4a148c,#3949ab,#37474f);
 display: flex;
 align-items: center;
@@ -42,11 +41,8 @@ justify-content: center;
 
 const Content = styled.div `
 display: flex;
-align-items: center;
-justify-content: center;
-margin-top: 90px;
-margin-bottom: 150px;
-@media(max-width:902px){
+
+@media(max-width:850px){
     img{
         opacity: 0;
     }
@@ -62,23 +58,17 @@ img{
 `
 
 const AboutContainer = styled.div `
-display: flex;
 margin-right: 20px;
 flex-direction: column;
-align-items: flex-start;
- text-align: left;
+text-align: start;
 color: white;
-@media(max-width:768px){
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-}
 `
 
 const AboutText = styled.div `
 display: flex;
 flex-direction: column;
+align-items: flex-start;
+
 
 h2{
    font-size: 24px;
@@ -96,7 +86,7 @@ p{
 const Contact = styled.div `
 display: flex;
 flex-direction: column;
-text-align: left;
+align-items:flex-start ;
 margin-top: 30px;
 h2{
     font-weight: 500;
