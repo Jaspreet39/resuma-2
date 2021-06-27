@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState} from 'react'
 import styled from 'styled-components'
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
@@ -165,7 +165,7 @@ const MenuItems = styled.div `
     right: 0;
     list-style: none;
     backdrop-filter: blur(8.5px);
-    width: 120px;
+    width: 150px;
     padding: 10px;
     height: 50vh;
 `
@@ -209,10 +209,8 @@ span{
 const ClosedIcon = styled(CloseIcon) `
 color: white;
 cursor: pointer;
-margin-top: 10px;
 position: absolute;
 right: 30px;
-top: 5px;
 &:hover{
     color: #00bcd4;
 }

@@ -1,7 +1,39 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import { db } from '../firebase'
+import firebase from 'firebase'
+
+
 
 function Contact() {
+    const [name, setName] = useState()
+    const [email, setEmail] = useState()
+    const [subject, setSubject] = useState()
+    const [message, setMessage] = useState()
+    const [buttonActive, setButtonActive] = useState(false)
+
+    const submit = (e) =>{
+        e.preventDefault()
+        db.collection('form').add({
+            Name: name,
+            Email: email,
+            Subject: subject,
+            Message: message,
+            timeStamp : firebase.firestore.FieldValue.serverTimestamp()
+        }).then(()=>nextStep())        
+    }
+
+    const nextStep = () => {
+        setName("")
+        setEmail("")
+        setSubject("")
+        setMessage("")
+    }
+
+    useEffect(()=>{
+        (name && email && subject && message)? setButtonActive(true): setButtonActive(false)
+    },[name,email,subject,message])
+
     return (
         <Container id="contact">
           <Heading>
@@ -11,20 +43,23 @@ function Contact() {
               <Form>     
                 <Wrap>
                     <h3>Name</h3>
-                    <input type="text" placeholder=""/>
+                    <input value={name} onChange={e=>setName(e.target.value)} type="text" placeholder=""/>
                 </Wrap>
                   <Wrap>
                     <h3>Email</h3>
-                    <input type="text" placeholder=""/>
+                    <input value={email} onChange={e=>setEmail(e.target.value)} type="text" placeholder=""/>
                 </Wrap>
                   <Wrap>
                     <h3>Subject</h3>
-                    <input type="text" placeholder=""/>
+                    <input value={subject} onChange={e=>setSubject(e.target.value)} type="text" placeholder=""/>
                 </Wrap>
                 <Wrap1>
-                     <h3>Subject</h3>
-                    <input type="text" placeholder=""/>
+                     <h3>Message</h3>
+                    <input value={message} onChange={e=>setMessage(e.target.value)} type="text" placeholder=""/>
                 </Wrap1>
+                 <Button disabled={!buttonActive} style={{display:buttonActive ? "inline": "none" }} >
+                  <button   onClick={submit} type="submit">Submit</button>
+               </Button>
                </Form> 
                  <About>
                     <h3>Address and Phone</h3>
@@ -40,18 +75,15 @@ function Contact() {
                     </AboutText>
                 </About>  
             </Content>
-           <Button>
-               <button type="submit">Submit</button>
-           </Button>
+          
         </Container>
     )
 }
 
 const Container = styled.div `
-height: 105vh;
+min-height: 110vh;
 width: 100vw;
 background-color: rgba(0,0,0,0.88);
-/* justify-content: center; */
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -75,7 +107,12 @@ justify-content: center;
 const Content = styled.div `
 display: flex;
 align-items: unset;
-justify-content: flex-start;
+justify-content:flex-start;
+@media (max-width:768px){
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 `
 const About = styled.div `
 display: flex;
@@ -90,16 +127,16 @@ h3{
     font-size: 17px;
     letter-spacing: 1px;
 }
-@media (max-width:900px){
-    opacity: 0;
-}
+
 `
 
 const AboutText = styled.div `
 display: flex;
 flex-direction: column;
 align-items: flex-start;
-
+@media (max-width:768px){
+    margin-bottom: 50px;
+}
 
 `
 
@@ -138,7 +175,6 @@ const Form = styled.div `
 display: flex;
 align-items: center;
 flex-direction: column;
-justify-content: center;
 
 `
 
@@ -146,6 +182,15 @@ const Wrap = styled.div `
 display: flex;
 align-items: center;
 margin-top: 40px;
+@media(max-width:768px){
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    h3{
+        margin-bottom: 10px;
+    }
+}
 
 h3{
     margin-right: 50px;
@@ -174,6 +219,15 @@ const Wrap1 = styled.div `
 display: flex;
 align-items: center;
 margin-top: 40px;
+@media(max-width:768px){
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+     h3{
+        margin-bottom: 10px;
+    }
+}
 
 h3{
     margin-right: 50px;
@@ -210,11 +264,17 @@ justify-content: center;
 border-radius: 5px;
 margin-top: 30px;
 cursor: pointer;
+position: relative;
 
 button{
     border: none;
+    position: absolute;
     outline: none;
     background: none;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     color: white;
     font-size: 18px;
     letter-spacing: 1.4px;
@@ -225,7 +285,7 @@ button{
 &:hover{
     background-color: rgb(249,249,249);
     color: black;
-    transition: 1s ease-in;
+    transition: 0.8s ease-in;
 
     button{
         color: black;

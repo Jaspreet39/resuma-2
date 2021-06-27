@@ -6,16 +6,16 @@ import TypeWriter from 'react-typewriter'
 function Home() {
 
    useEffect(()=>{
-const form = document.getElementById('form')
-   form.addEventListener('mousemove', (e) => {
+    const form = document.getElementById('form')  
+    form.addEventListener('mousemove', (e) => {
 
-       const x = (window.innerWidth / 3 - e.pageX) / 12;
-       const y = (window.innerHeight / 3 - e.pageY) / 12;
-       form.style.transform = 'rotateX(' + x + 'deg) rotateY('+ y + 'deg)'
-   })
-   form.addEventListener('mouseout',function(){
-       form.style.transform = 'rotateX(0deg) rotateY(0deg)'
-   })
+        const x = (window.innerWidth / 3 - e.pageX) / 12;
+        const y = (window.innerHeight / 3 - e.pageY) / 12;
+        form.style.transform = 'rotateX(' + x + 'deg) rotateY('+ y + 'deg)'
+    })
+    form.addEventListener('mouseout',function(){
+        form.style.transform = 'rotateX(0deg) rotateY(0deg)'
+    })
 },[])
 
    
@@ -23,11 +23,10 @@ const form = document.getElementById('form')
         <Container id="home">
           <ItemText id="form">
               <h1>
-                   <TypeWriter typing={0.5}>I'm Jaspreet Singh</TypeWriter>
+                   <TypeWriter typing={0.5}>I'm <span>Jaspreet Singh</span></TypeWriter>
               </h1>
               <p> <TypeWriter typing={1.7}>Based in Rajpura. Student. I eat, sleep and breathe React.</TypeWriter></p>
               <Li>
-            
                 <a href="https://www.facebook.com/profile.php?id=100066188760462">
                   <img src="/Images/Facebook.png" alt=""/>
                 </a>
@@ -40,189 +39,119 @@ const form = document.getElementById('form')
                 <a href="https://github.com/Jaspreet39">
                   <img src="/Images/github.png" alt=""/>
                 </a>
-               
               </Li>
           </ItemText>
-          <DownArrow>
-          <a href="#about">
-              <img src="/Images/down-arrow-5.png" alt=""/>
+            <DownArrow>
+              <a href="#about">
+                  <img src="/Images/down-arrow-5.png" alt=""/>
               </a>
-          </DownArrow>
+            </DownArrow>
         </Container>
     )
 }
 
-const Container = styled.div `
-background-image: url("/Images/nebula-stars-sea-night-starry-sky.jpg");
-height: 100vh;
-width: 100vw;
-background-repeat: no-repeat;
-background-size: cover;
-background-position: center;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-
-
+const Container = styled.div`
+  background-image: url("/Images/nebula-stars-sea-night-starry-sky.jpg");
+  height: 100vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `
 
 const ItemText = styled.div `
-perspective: 1000px;
-align-items: center;
-display: flex;
-flex-direction: column;
-justify-content: center;
-text-align: center;
-height: 500px;
-width: 900px;
-background: rgba(255,255,255,.2.5);
-border-radius: 5px;
-box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-border-top: 1px solid rgba(255,255,255,0.3);
-border-left: 1px solid rgba(255,255,255,0.3);
-backdrop-filter:blur(6.5px);
-transform-style: preserve-3d;
-cursor: pointer;
-color: rgb(249,249,249);
+  perspective: 1000px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 500px;
+  width: 900px;
+  @media(max-width:850px){
+    height: 100%;
+  width: 100%;
+  }
+  background: rgba(255,255,255,.2.5);
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  border-top: 1px solid rgba(255,255,255,0.3);
+  border-left: 1px solid rgba(255,255,255,0.3);
+  backdrop-filter:blur(6.5px);
+  transform-style: preserve-3d;
+  cursor: pointer;
+  color: rgb(249,249,249);
 
-  @media(max-width:950px){
-    perspective: 1000px;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    height: 500px;
-    width: 750px;
-    background: rgba(255,255,255,.2.5);
-    border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    border-top: 1px solid rgba(255,255,255,0.3);
-    border-left: 1px solid rgba(255,255,255,0.3);
-    backdrop-filter:blur(6.5px);
-    transform-style: preserve-3d;
-    cursor: pointer;
-    color: rgb(249,249,249);
-
-    h1{
-     font: 90px/1.1em 'opensans-bold', sans-serif;
-   color: #fff;
-   letter-spacing: -5px;
-   margin: 0 auto 18px auto;
-   text-shadow: 0px 1px 3px rgba(0, 0, 0, .8);
+  h1{
+    font-size:70px;
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: -2px;
+    margin: 0 auto 18px auto;
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, .8);
+    span{
+      letter-spacing:3px;
     }
   }
+  p{
+      font-size: 20px;
+      font-weight: 400;
+      margin-top: 10px;
+      letter-spacing: 2px;
 
-  @media (min-width:950px) and (max-width: 800px){
-    perspective: 1000px;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    height: 470px;
-    width: 650px;
-    background: rgba(255,255,255,.2.5);
-    border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    border-top: 1px solid rgba(255,255,255,0.3);
-    border-left: 1px solid rgba(255,255,255,0.3);
-    backdrop-filter:blur(6.5px);
-    transform-style: preserve-3d;
-    cursor: pointer;
-    color: rgb(249,249,249);
+      &:before{
+          background-color: rgba(0,0,0,0.3);
+          border-radius: 0px 0px 0px 4px;
+          bottom: 200px;
+          height: 1px;
+          left: 10%;
+          opacity: 1;
+          position: absolute;
+          right: 10%;
+          width: auto;
+          content: '';
+          @media(max-width:400px){
+            bottom: 180px;
+            left: 2%;
+            right: 2%;
+          }
+    }
   }
-  @media  (max-width: 768px){
-     perspective: 1000px;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    height: 450px;
-    width: 600px;
-    background: rgba(255,255,255,.2.5);
-    border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    border-top: 1px solid rgba(255,255,255,0.3);
-    border-left: 1px solid rgba(255,255,255,0.3);
-    backdrop-filter:blur(6.5px);
-    transform-style: preserve-3d;
-    cursor: pointer;
-    color: rgb(249,249,249);
-  
+  @media(max-width:850px){
+    height: 50%;
+    width: 90%;
+    h1{
+      font-size:35px;
+    }
   }
-  @media (max-width: 650px){
-     perspective: 1000px;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    height: 400px;
-    width: 500px;
-    background: rgba(255,255,255,.2.5);
-    border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    border-top: 1px solid rgba(255,255,255,0.3);
-    border-left: 1px solid rgba(255,255,255,0.3);
-    backdrop-filter:blur(6.5px);
-    transform-style: preserve-3d;
-    cursor: pointer;
-    color: rgb(249,249,249);
-  }
-
-
-h1{
-     font: 90px/1.1em 'opensans-bold', sans-serif;
-   color: #fff;
-   letter-spacing: -2px;
-   margin: 0 auto 18px auto;
-   text-shadow: 0px 1px 3px rgba(0, 0, 0, .8);
-}
-p{
-    font-size: 20px;
-    font-weight: 400;
-    margin-top: 10px;
-    letter-spacing: 2px;
-
-    &:before{
-        background-color: rgba(0,0,0,0.3);
-        border-radius: 0px 0px 0px 4px;
-        bottom: 200px;
-        height: 1px;
-        left: 10%;
-        opacity: 1;
-        position: absolute;
-        right: 10%;
-        width: auto;
-        content: '';
-  }
-}
 `
 
 const DownArrow = styled.div `
-height: 40px;
-width: 40px;
-background-color: rgba(249,249,249,0.4);
-position: absolute;
-bottom: 20px;
-border-radius: 50%;
-animation: animateDown infinite 1.5s;
-cursor: pointer;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(249,249,249,0.4);
+  position: absolute;
+  bottom: 20px;
+  border-radius: 50%;
+  animation: animateDown infinite 1.5s;
+  cursor: pointer;
 
-img{
-    height: 40px;
-    position: absolute;
-    bottom: 1.5px;
-   
-}
+  display: flex;
+  align-items: center;
 
-&:hover{
-    background-color: #00bcd4;
-    transition-delay: 0.1s;
-}
+justify-content: center;
+  img{
+      height: 25px;
+  }
+
+  &:hover{
+      background-color: #00bcd4;
+      transition-delay: 0.1s;
+  }
 `
 
 const Li = styled.div `

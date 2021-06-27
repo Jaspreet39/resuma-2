@@ -14,11 +14,11 @@ function Resume() {
                             <h4>•July 2022</h4>
                         </Info>
                         <p>Graduate with First Class Honours</p>
-                    </Detail>
+                    </Detail>       
                 </Wrap>
                 <Wrap>
                     <Title>Work</Title>
-                    <Detail style={{marginLeft:"50px"}}>
+                    <Detail >
                         <h1>Self</h1>
                         <Info>
                             <h3>Bachelor's Degree, Computer Science </h3>
@@ -33,10 +33,11 @@ function Resume() {
 }
 
 const Container = styled.div `
-height: 60vh;
+min-height: 60vh;
 width: 100vw;
 display: flex;
 justify-content: center;
+
 `
 
 const Content = styled.div `
@@ -51,6 +52,14 @@ display: flex;
 align-items: flex-start;
 margin-bottom: 120px;
 position: relative;
+
+@media(max-width:850px){
+   display: flex;
+   flex-direction: column;
+   
+align-items: center;
+   justify-content: center;
+}
 
 &:before{
     background-color: rgba(0,0,0,0.1);
@@ -71,11 +80,13 @@ position: relative;
 const Title = styled.div `
 font-size: 23px;
 font-weight: 500;
-margin-bottom: 60px;
+
 position: relative;
 margin-right: 100px;
 margin-left: 20px;
-
+@media(max-width:850px){
+    margin:20px 0;
+}
 &:before{
     content: '';
     background-color: #00bcd4;
@@ -98,11 +109,20 @@ display: flex;
 flex-direction: column;
 justify-content: flex-start;
 align-items: flex-start;
-/* margin-left: 50px; */
+    @media(max-width:850px){
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    }
 
 h1{
     font-weight: 700;
     font-size: 25px;
+    text-align:center;
+    @media(max-width:850px){
+        font-size: 20px;
+    }
 }
 
 
