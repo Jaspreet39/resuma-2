@@ -1,11 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-// import { useLocation } from 'react-router'
 
 function About() {
-    // const location = useLocation()
-    // const pathName = location.pathname
-    // console.log(pathName)
+    
     return (
         <Container id="about">
             <Content>

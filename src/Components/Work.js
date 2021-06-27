@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import Slider from 'react-slick'
 
 const Work = (props) => {
   let settings = {
@@ -87,7 +86,6 @@ const Items = styled.div `
 `
 
 const Wrap = styled.div `
-  /* width: 200px; */
   padding-top: 45.25%;
   border-radius: 10px;
   margin-top: 20px;
