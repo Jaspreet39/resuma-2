@@ -18,7 +18,7 @@ function Resume() {
                 </Wrap>
                 <Wrap>
                     <Title>Work</Title>
-                    <Detail >
+                    <Detail>
                         <h1>Self</h1>
                         <Info>
                             <h3>Bachelor's Degree, Computer Science </h3>
@@ -150,5 +150,6 @@ h4{
     margin-left: 10px;
 }
 `
+
 
 export default Resume

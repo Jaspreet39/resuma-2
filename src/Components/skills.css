@@ -1,0 +1,141 @@
+.skills {
+  background-image: url("https://resumegenius.com/wp-content/uploads/front-end-developer-resume.png");
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.skills_heading > h1 {
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  font-family: serif;
+  margin-top: 10px;
+}
+
+.skills_content {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.frontend_heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.frontend_heading > h3,
+.backend_heading > h3 {
+  color: grey;
+  font-weight: 400;
+  font-size: 16px;
+}
+.frontend_title,
+.backend_title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.frontend_title .MuiSvgIcon-root,
+.backend_title .MuiSvgIcon-root {
+  color: indigo;
+}
+.frontend_title > h1,
+.backend_title > h1 {
+  margin-left: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  font-family: serif;
+}
+.frontend_skillsData,
+.backend_skillsData {
+  margin-top: 20px;
+}
+.skills-title > h2 {
+  font-weight: 500;
+  font-family: serif;
+}
+.skills-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.skills_bar,
+.skills_percentage {
+  height: 5px;
+  border-radius: 0.25rem;
+}
+.skills_bar {
+  background-color: gray;
+}
+.skills_percentage {
+  display: block;
+  background-color: indigo;
+}
+.skills_HTML {
+  width: 70%;
+}
+.skills_CSS {
+  width: 80%;
+}
+.skills_JavScript {
+  width: 50%;
+}
+.skills_React {
+  width: 60%;
+}
+.skills_Firebase {
+  width: 65%;
+}
+.skills_NodeJs {
+  width: 75%;
+}
+@media only screen and (max-width: 400px) {
+  .skills_content {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+  }
+  .frontend_title,
+  .backend_title > h1 {
+    margin-top: 30px;
+  }
+  .backend_title .MuiSvgIcon-root {
+    margin-top: 30px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .skills_content {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+  }
+  .frontend_title,
+  .backend_title > h1 {
+    margin-top: 30px;
+  }
+  .backend_title .MuiSvgIcon-root {
+    margin-top: 30px;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .skills_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+    flex-direction: column;
+    margin: 0 20px;
+  }
+  .frontend_title,
+  .backend_title > h1 {
+    margin-top: 30px;
+  }
+  .backend_title .MuiSvgIcon-root {
+    margin-top: 30px;
+  }
+}
