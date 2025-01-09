@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -7,128 +8,82 @@ const Work = (props) => {
   let settings = {
     dots: true,
     infinite: true,
-    speed: 500,
-    slidesToShow: 1,
+    speed: 700,
+    slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
   };
 
+  const project = [
+    {
+      image:
+        "https://images.pexels.com/photos/7876050/pexels-photo-7876050.jpeg?auto=format%2Ccompress&fm=webp&fit=crop&crop=faces%2Cedges&w=1200&h=675&q=60&cs=tinysrgb",
+      link: "https://doc-analysis-tool.vercel.app/",
+    },
+    {
+      image:
+        "https://v.w-x.co/Canada_weather_may_10th_1280x720_59386949872.jpg",
+      link: "https://weather.com/en-CA/weather/today/l/584018bec07ce9573837c14fa59da031fa6fcdeb1c3c9e3b2b27cb79ce254b5a",
+    },
+    {
+      image:
+        "https://mms.businesswire.com/media/20240429744210/en/2113615/23/Amazon_logo.jpg",
+      link: "https://amazon-clone-neon-nu.vercel.app",
+    },
+    {
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0q7W29FtGlffXmf-1D95yC2BHG4DivZUVsg&s",
+      link: "https://cosmos-45t6.vercel.app",
+    },
+    {
+      image:
+        "https://hariharmarbles.com/wp-content/uploads/2022/12/beautiful-shot-modern-house-kitchen-1-scaled.jpg",
+      link: "https://harihar-marbles.vercel.app/",
+    },
+  ];
+
   return (
-    <Container {...settings} id="work">
-      <Content>
-        <h3> CHECK OUT SOME OF MY WORK</h3>
-        <Items>
-          <Wrap>
-            <a href="https://netflix-clone-cf491.web.app/">
-              <img src="/Images/netflix.jpeg" alt="" />
-              <h3>Netflix Clone (React.js)</h3>
-            </a>
-          </Wrap>
-          <Wrap>
-            <a href="https://linkedin-clone-d0547.web.app/">
-              <img src="/Images/linkedin.png" alt="" />
-              <h3>Linked In Clone (React.js)</h3>
-            </a>
-          </Wrap>
-          <Wrap>
-            <a href="https://clone-138a4.web.app">
-              <img src="/Images/youtube2.jpg" alt="" />
-              <h3>Youtube Clone (React.js)</h3>
-            </a>
-          </Wrap>
-          <Wrap>
-            <a href="https://covid-19-tracker-bd724.web.app">
-              <img src="/Images/covidtracker.jpg" alt="" />
-              <h3>Covid Tracker Clone (React.js)</h3>
-            </a>
-          </Wrap>
-        </Items>
-      </Content>
-    </Container>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "50vh",
+        margin: "20px 0",
+      }}
+    >
+      <h3> CHECK OUT SOME OF MY WORK</h3>
+      <div style={{ maxWidth: "80%", padding: "20px 0" }}>
+        <Slider {...settings}>
+          {project.map((item) => (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                margin: "10px 0",
+                padding: "10px 0",
+              }}
+              key={item.image}
+            >
+              <a href={item.link} style={{ maxHeight: 200, maxWidth: 500 }}>
+                <img
+                  height="100%"
+                  width="100%"
+                  style={{
+                    objectFit: "cover",
+                  }}
+                  src={item.image}
+                  alt=""
+                />
+              </a>
+            </div>
+          ))}
+        </Slider>
+      </div>
+    </div>
   );
 };
-
-const Container = styled.div`
-  min-height: 50vh;
-  width: 100vw;
-  background-color: rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  padding: 35px 0;
-`;
-
-const Content = styled.div`
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 500px;
-  h3 {
-    font-size: 17px;
-    margin-bottom: 20px;
-    text-align: center;
-    color: rgba(0, 0, 0, 0.4);
-    font-weight: 500;
-    align-items: center;
-    letter-spacing: 1.5px;
-  }
-`;
-
-const Items = styled.div`
-  height: 250px;
-  width: 400px;
-  @media (max-width: 850px) {
-    width: 100%;
-  }
-  overflow-x: hidden;
-  overflow-y: scroll;
-`;
-
-const Wrap = styled.div`
-  padding-top: 45.25%;
-  border-radius: 10px;
-  margin-top: 20px;
-  box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
-    rgb(0 0 0 / 73%) 0px 16px 10px -10px;
-  cursor: pointer;
-  overflow: hidden;
-  position: relative;
-  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  border: 3px solid rgba(249, 249, 249, 0.1);
-
-  img {
-    inset: 0px;
-    display: block;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    position: absolute;
-    object-fit: cover;
-    z-index: -1;
-    opacity: 1;
-  }
-
-  h3 {
-    position: absolute;
-    opacity: 0;
-    color: white;
-    text-align: center;
-    top: 20px;
-    right: 0;
-    left: 0;
-    transition: 0.5s ease-in;
-    z-index: 1;
-  }
-
-  &:hover {
-    transform: scale(1.05);
-    background: rgba(0, 0, 0, 1);
-
-    h3 {
-      opacity: 1;
-    }
-  }
-`;
 
 export default Work;

@@ -1,86 +1,95 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { db } from "../firebase";
-import firebase from "firebase";
+import emailjs from "emailjs-com";
 
 function Contact() {
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [subject, setSubject] = useState();
-  const [message, setMessage] = useState();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
   const [buttonActive, setButtonActive] = useState(false);
 
   const submit = (e) => {
-    e.preventDefault();
-    db.collection("form")
-      .add({
-        Name: name,
-        Email: email,
-        Subject: subject,
-        Message: message,
-        timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
-      })
-      .then(() => nextStep());
-  };
+    e.preventDefault(); // Prevent default form submission behavior
 
-  const nextStep = () => {
-    setName("");
-    setEmail("");
-    setSubject("");
-    setMessage("");
+    emailjs
+      .sendForm(
+        "gmail", // Your service ID
+        "Portfolio-Template", // Your template ID
+        e.target, // Form reference
+        "user_J6W3juMedwSXA7gsHUcA9" // Your public key
+      )
+      .then(
+        (result) => {
+          console.log(result.text); // Log success
+        },
+        (error) => {
+          console.log(error.text); // Log error
+        }
+      );
+
+    e.target.reset(); // Reset form fields after submission
   };
 
   useEffect(() => {
-    name && email && subject && message
-      ? setButtonActive(true)
-      : setButtonActive(false);
+    setButtonActive(name && email && subject && message);
   }, [name, email, subject, message]);
 
   return (
     <Container id="contact">
       <Heading>
-        <h2>Get in touch with me a part of my family !</h2>
+        <h2>Get in touch with me, be a part of my family!</h2>
       </Heading>
       <Content>
-        <Form>
+        <Form onSubmit={submit}>
+          {" "}
+          {/* Use onSubmit for form */}
           <Wrap>
             <h3>Name</h3>
             <input
+              name="name" // Added name attribute
               value={name}
               onChange={(e) => setName(e.target.value)}
               type="text"
               placeholder=""
+              required
             />
           </Wrap>
           <Wrap>
             <h3>Email</h3>
             <input
+              name="email" // Added name attribute
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              type="text"
+              type="email"
               placeholder=""
+              required
             />
           </Wrap>
           <Wrap>
             <h3>Subject</h3>
             <input
+              name="subject" // Added name attribute
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
               type="text"
               placeholder=""
+              required
             />
           </Wrap>
           <Wrap>
             <h3>Message</h3>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <textarea
+              name="message" // Added name attribute
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              cols="30"
+              rows="10"
+              required
+            ></textarea>
           </Wrap>
-          <Button
-            disabled={!buttonActive}
-            style={{ display: buttonActive ? "inline" : "none" }}
-          >
-            <button onClick={submit} type="submit">
-              Submit
-            </button>
+          <Button disabled={!buttonActive}>
+            <button type="submit">Submit</button>
           </Button>
         </Form>
         <About>
@@ -91,8 +100,8 @@ function Contact() {
               <p>jassingh0244@gmail.com</p>
             </AboutText1>
             <AboutText2>
-              <p>New Dashmesh Nagar Rajpura, Punjab 140401</p>
-              <p>+91 9463586110</p>
+              <p>43 Sedgewick Circle, Brampton, ON, Canada, L7P 2P6</p>
+              <p>+1 4378484005</p>
             </AboutText2>
           </AboutText>
         </About>

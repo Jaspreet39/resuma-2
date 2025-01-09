@@ -83,6 +83,15 @@ function Skills() {
               <span className="skills_percentage skills_NodeJs"></span>
             </div>
           </div>
+          <div className="backend_skillsData">
+            <div className="skills-title">
+              <h2>Redux</h2>
+              <span>80%</span>
+            </div>
+            <div className="skills_bar">
+              <span className="skills_percentage skills_NodeJs"></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

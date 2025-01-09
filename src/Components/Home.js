@@ -26,7 +26,8 @@ function Home() {
         <p>
           {" "}
           <TypeWriter typing={1.7}>
-            Based in Rajpura. Student. I eat, sleep and breathe React.
+            Based in Canada. Full Time Developer. I eat, sleep and breathe
+            React.
           </TypeWriter>
         </p>
         <Li>
