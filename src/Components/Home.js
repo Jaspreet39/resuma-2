@@ -1,180 +1,140 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
-import TypeWriter from "react-typewriter";
+import React, { useEffect, useRef } from "react";
+import Typed from "typed.js";
+import {
+  Facebook,
+  Linkedin,
+  Instagram,
+  Github,
+  ChevronDown,
+} from "lucide-react";
 
 function Home() {
+  const el = useRef(null);
+  const cardRef = useRef(null);
+
   useEffect(() => {
-    const form = document.getElementById("form");
-    form.addEventListener("mousemove", (e) => {
-      const x = (window.innerWidth / 3 - e.pageX) / 12;
-      const y = (window.innerHeight / 3 - e.pageY) / 12;
-      form.style.transform = "rotateX(" + x + "deg) rotateY(" + y + "deg)";
+    const typed = new Typed(el.current, {
+      strings: [
+        "Based in Canada. Full Time Developer. I eat, sleep and breathe React.",
+      ],
+      typeSpeed: 50,
+      backSpeed: 50,
+      loop: false,
     });
-    form.addEventListener("mouseout", function () {
-      form.style.transform = "rotateX(0deg) rotateY(0deg)";
-    });
+
+    return () => {
+      typed.destroy();
+    };
+  }, []);
+
+  useEffect(() => {
+    const card = cardRef.current;
+    if (!card) return;
+
+    const handleMouseMove = (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateX = (y - centerY) / 20;
+      const rotateY = (centerX - x) / 20;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    };
+
+    const handleMouseLeave = () => {
+      card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg)";
+      card.style.transition = "transform 0.5s ease";
+    };
+
+    card.addEventListener("mousemove", handleMouseMove);
+    card.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      card.removeEventListener("mousemove", handleMouseMove);
+      card.removeEventListener("mouseleave", handleMouseLeave);
+    };
   }, []);
 
   return (
-    <Container id="home">
-      <ItemText id="form">
-        <h1>
-          <TypeWriter typing={0.5}>
-            I'm <span>Jaspreet Singh</span>
-          </TypeWriter>
-        </h1>
-        <p>
-          {" "}
-          <TypeWriter typing={1.7}>
-            Based in Canada. Full Time Developer. I eat, sleep and breathe
-            React.
-          </TypeWriter>
-        </p>
-        <Li>
-          <a href="https://www.facebook.com/profile.php?id=100066188760462">
-            <img src="/Images/Facebook.png" alt="" />
-          </a>
-          <a href="https://www.linkedin.com/in/jaspreet-singh-chopra-b63bb518a/">
-            <img src="/Images/linkedin-191-739516.png" alt="" />
-          </a>
-          <a href="https://www.instagram.com/official_pb_39/">
-            <img
-              src="/Images/instagram-logo-A807AD378B-seeklogo.com.png"
-              alt=""
+    <section
+      id="home"
+      className="relative min-h-screen w-full bg-cover bg-center bg-fixed flex flex-col items-center justify-center px-4"
+      style={{
+        backgroundImage:
+          'url("https://images.unsplash.com/photo-1539721972319-f0e80a00d424?q=80&w=2070&auto=format&fit=crop")',
+      }}
+    >
+      <div
+        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+        aria-hidden="true"
+      />
+
+      <div
+        ref={cardRef}
+        className="relative z-10 w-full max-w-3xl mx-auto p-8 md:p-12 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl transition-transform duration-300 ease-out"
+        style={{ transformStyle: "preserve-3d" }}
+      >
+        <div className="text-center space-y-6">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight">
+            I'm <span className="text-blue-400">Jaspreet Singh</span>
+          </h1>
+
+          <p className="text-lg md:text-xl text-gray-300 mt-4 leading-relaxed">
+            <span ref={el}></span>
+          </p>
+
+          <div className="flex items-center justify-center gap-6 mt-8">
+            <SocialLink
+              href="https://www.facebook.com/profile.php?id=100066188760462"
+              icon={<Facebook />}
+              label="Facebook"
             />
-          </a>
-          <a href="https://github.com/Jaspreet39">
-            <img src="/Images/github.png" alt="" />
-          </a>
-        </Li>
-      </ItemText>
-      <DownArrow>
-        <a href="#about">
-          <img src="/Images/down-arrow-5.png" alt="" />
-        </a>
-      </DownArrow>
-    </Container>
+            <SocialLink
+              href="https://www.linkedin.com/in/jaspreet-singh-chopra-b63bb518a/"
+              icon={<Linkedin />}
+              label="LinkedIn"
+            />
+            <SocialLink
+              href="https://www.instagram.com/official_pb_39/"
+              icon={<Instagram />}
+              label="Instagram"
+            />
+            <SocialLink
+              href="https://github.com/Jaspreet39"
+              icon={<Github />}
+              label="GitHub"
+            />
+          </div>
+        </div>
+      </div>
+
+      <a
+        href="#about"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-white/20 hover:bg-blue-500 transition-colors duration-300 group"
+        aria-label="Scroll to About section"
+      >
+        <ChevronDown className="w-6 h-6 text-white animate-bounce" />
+      </a>
+    </section>
   );
 }
 
-const Container = styled.div`
-  background-image: url("/Images/nebula-stars-sea-night-starry-sky.jpg");
-  height: 100vh;
-  width: 100vw;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-position: center;
-  background-attachment: fixed;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
-const ItemText = styled.div`
-  perspective: 1000px;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  height: 500px;
-  width: 900px;
-  @media (max-width: 850px) {
-    height: 100%;
-    width: 100%;
-  }
-  background: rgba(255, 255, 255, 0.2.5);
-  border-radius: 5px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
-  border-left: 1px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(6.5px);
-  transform-style: preserve-3d;
-  cursor: pointer;
-  color: rgb(249, 249, 249);
-
-  h1 {
-    font-size: 70px;
-    font-weight: 400;
-    color: #fff;
-    letter-spacing: -2px;
-    margin: 0 auto 18px auto;
-    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.8);
-    span {
-      letter-spacing: 3px;
-    }
-  }
-  p {
-    font-size: 20px;
-    font-weight: 400;
-    margin-top: 10px;
-    letter-spacing: 2px;
-
-    &:before {
-      background-color: rgba(0, 0, 0, 0.3);
-      border-radius: 0px 0px 0px 4px;
-      bottom: 200px;
-      height: 1px;
-      left: 10%;
-      opacity: 1;
-      position: absolute;
-      right: 10%;
-      width: auto;
-      content: "";
-      @media (max-width: 400px) {
-        bottom: 180px;
-        left: 2%;
-        right: 2%;
-      }
-    }
-  }
-  @media (max-width: 850px) {
-    height: 50%;
-    width: 90%;
-    h1 {
-      font-size: 35px;
-    }
-  }
-`;
-
-const DownArrow = styled.div`
-  height: 40px;
-  width: 40px;
-  background-color: rgba(249, 249, 249, 0.4);
-  position: absolute;
-  bottom: 20px;
-  border-radius: 50%;
-  animation: animateDown infinite 1.5s;
-  cursor: pointer;
-
-  display: flex;
-  align-items: center;
-
-  justify-content: center;
-  img {
-    height: 25px;
-  }
-
-  &:hover {
-    background-color: #00bcd4;
-    transition-delay: 0.1s;
-  }
-`;
-
-const Li = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  a {
-    img {
-      height: 30px;
-      margin-right: 20px;
-      margin-top: 55px;
-      margin-bottom: 20px;
-    }
-  }
-`;
+function SocialLink({ href, icon, label }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-blue-500 transition-all duration-300 group"
+      aria-label={label}
+    >
+      <div className="w-6 h-6 text-white">{icon}</div>
+    </a>
+  );
+}
 
 export default Home;

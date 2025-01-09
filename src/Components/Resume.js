@@ -1,147 +1,52 @@
 import React from "react";
-import styled from "styled-components";
 
 function Resume() {
   return (
-    <Container id="resume">
-      <Content>
-        <Wrap>
-          <Title>Education</Title>
-          <Education>
-            <Detail>
-              <h1>Loyalist College Toronto</h1>
-              <Info>
-                <h3>
+    <div
+      id="resume"
+      className="min-h-[50vh] w-full flex items-center justify-center py-10 px-4"
+    >
+      <div className="w-full max-w-4xl">
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-20 relative">
+          <h2 className="text-2xl font-medium mb-8 md:mb-0 md:mr-24 relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-full after:bg-cyan-400 after:rounded-lg">
+            Education
+          </h2>
+
+          <div className="flex-1 space-y-12">
+            <div className="space-y-4">
+              <h3 className="text-2xl font-bold">Loyalist College Toronto</h3>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                <span className="text-lg text-gray-600">
                   Post Graduate in Computer Software and Database Development
-                </h3>
-                <h4>May 2023 - Dec 2024</h4>
-              </Info>
-              <p>Post Graduate with First Class Honours</p>
-            </Detail>
-            <div style={{ margin: "50px 0" }} />
-            <Detail>
-              <h1>Guru Nanak Dev Engineering College, Ludhiana</h1>
-              <Info>
-                <h3>Bachelor's Degree, Computer Science </h3>
-                <h4>July 2018 - July 2022</h4>
-              </Info>
-              <p>Graduate with First Class Honours</p>
-            </Detail>
-          </Education>
-        </Wrap>
-      </Content>
-    </Container>
+                </span>
+                <span className="text-base font-semibold text-gray-800 whitespace-nowrap">
+                  May 2023 - Dec 2024
+                </span>
+              </div>
+              <p className="text-gray-500">
+                Post Graduate with First Class Honours
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              <h3 className="text-2xl font-bold">
+                Guru Nanak Dev Engineering College, Ludhiana
+              </h3>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                <span className="text-lg text-gray-600">
+                  Bachelor's Degree, Computer Science
+                </span>
+                <span className="text-base font-semibold text-gray-800 whitespace-nowrap">
+                  July 2018 - July 2022
+                </span>
+              </div>
+              <p className="text-gray-500">Graduate with First Class Honours</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
-
-const Container = styled.div`
-  min-height: 50vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 20px 0;
-`;
-
-const Content = styled.div`
-  height: 100%;
-  width: 55%;
-  display: flex;
-  flex-direction: column;
-`;
-
-const Education = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const Wrap = styled.div`
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: 120px;
-  position: relative;
-
-  @media (max-width: 850px) {
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-  }
-`;
-
-const Title = styled.div`
-  font-size: 23px;
-  font-weight: 500;
-
-  position: relative;
-  margin-right: 100px;
-  margin-left: 20px;
-  @media (max-width: 850px) {
-    margin: 20px 0;
-  }
-  &:before {
-    content: "";
-    background-color: #00bcd4;
-    border-radius: 10px;
-    bottom: -6px;
-    left: 0px;
-    height: 2px;
-    opacity: 1;
-    right: 0px;
-    width: auto;
-    visibility: visible;
-    position: absolute;
-    transform-origin: left center;
-  }
-`;
-
-const Detail = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex: 1;
-  @media (max-width: 850px) {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-
-  h1 {
-    font-weight: 700;
-    font-size: 25px;
-    text-align: center;
-    @media (max-width: 850px) {
-      font-size: 20px;
-    }
-  }
-
-  p {
-    margin-top: 20px;
-    color: rgba(0, 0, 0, 0.5);
-  }
-`;
-
-const Info = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  h3 {
-    margin-top: 10px;
-    color: rgba(0, 0, 0, 0.5);
-    font-size: 20px;
-    font-weight: 400;
-  }
-  h4 {
-    margin-top: 10px;
-    color: rgba(0, 0, 0, 0.9);
-    font-size: 17px;
-    font-weight: 600;
-    margin-left: 10px;
-  }
-`;
 
 export default Resume;
