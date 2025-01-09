@@ -1,13 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
 
 function Header() {
   const [burgerStatus, setBurgerStatus] = useState(false);
+  const [show, handleShow] = useState(false);
+
+  const transitionNavBar = () => {
+    if (window.scrollY > 900) {
+      handleShow(true);
+    } else {
+      handleShow(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", transitionNavBar);
+    return () => window.removeEventListener("scroll", transitionNavBar);
+  }, []);
 
   return (
-    <Container>
+    <Container style={{ backgroundColor: show && `rgba(0,0,0,0.5)` }}>
       <Content>
         <Wrap>
           <a href="#home">
@@ -25,7 +39,7 @@ function Header() {
           </a>
         </Wrap>
         <Wrap>
-          <a href="#skills">
+          <a href="#skill">
             <span>Skills</span>
           </a>
         </Wrap>
@@ -92,7 +106,7 @@ const Container = styled.div`
   justify-content: center;
   display: flex;
   align-items: center;
-  height: 50px; ;
+  height: 50px;
 `;
 const Content = styled.div`
   display: flex;

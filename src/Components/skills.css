@@ -31,6 +31,7 @@
 .skills_content {
   display: flex;
   justify-content: space-evenly;
+  margin-top: 20px;
 }
 
 .frontend_heading {
@@ -39,31 +40,36 @@
   align-items: center;
 }
 .frontend_heading > h3,
-.backend_heading > h3 {
+.backend_heading > h3,
+.soft_heading > h3 {
   color: #fff;
   font-weight: 400;
   font-size: 16px;
 }
 .frontend_title,
-.backend_title {
+.backend_title,
+.soft_title {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .frontend_title .MuiSvgIcon-root,
-.backend_title .MuiSvgIcon-root {
+.backend_title .MuiSvgIcon-root,
+.soft_title .MuiSvgIcon-root {
   color: #e5e5e5;
 }
 .frontend_title > h1,
-.backend_title > h1 {
+.backend_title > h1,
+.soft_title > h1 {
   margin-left: 10px;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 1.5px;
   font-family: serif;
   color: #fff;
 }
 .frontend_skillsData,
-.backend_skillsData {
+.backend_skillsData,
+.soft_skillsData {
   margin-top: 20px;
 }
 .skills-title > h2 {
@@ -99,12 +105,30 @@
   width: 50%;
 }
 .skills_React {
-  width: 60%;
+  width: 80%;
+}
+.skills_Angular {
+  width: 40%;
 }
 .skills_Firebase {
   width: 65%;
 }
+.skills_Mysql {
+  width: 60%;
+}
+.skills_Mongodb {
+  width: 85%;
+}
 .skills_NodeJs {
+  width: 75%;
+}
+.skills_problemSolving {
+  width: 75%;
+}
+.skills_Canva {
+  width: 75%;
+}
+.skills_Figma {
   width: 75%;
 }
 @media only screen and (max-width: 400px) {
